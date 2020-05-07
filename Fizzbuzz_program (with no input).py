@@ -1,4 +1,4 @@
-for x in range(100):
+for x in range(101):
     if x%15 == 0 and x !=0:
         print("Fizzbuzz")
     elif x%5 == 0 and x !=0:
@@ -7,3 +7,4 @@ for x in range(100):
         print("Fizz")
     else:
         print(x)
+            
