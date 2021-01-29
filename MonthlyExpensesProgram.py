@@ -1,66 +1,91 @@
-##Configure January Expenses and LIST##
-January_Automotive_Expenses = int(100)
-January_Miscellaneous_Expenses = int(100)
-January_Expenses = [
-    'January_Automotive_Expenses', January_Automotive_Expenses,
-    'January_Miscellaneous_Expenses', January_Miscellaneous_Expenses
-]
-
-##Configure February Expenses and LIST##
-February_Automotive_Expenses = int(100)
-February_Miscellaneous_Expenses = int(100)
-February_Expenses = [
-    'February_Automotive_Expenses', February_Automotive_Expenses,
-    'February_Miscellaneous_Expenses', February_Miscellaneous_Expenses
-]
-
-##Configure January Income and LIST##
-January_Primary_Income = int(100)
-January_Other_Income = int(100)
-January_Income = [
-    'January Primary Income', January_Primary_Income,
-    'January Other Income', January_Other_Income
-]
-
-##Configure February Income and LIST##
-February_Primary_Income = int(100)
-February_Other_Income = int(100)
-February_Income = [
-    'February Primary Income', February_Primary_Income,
-    'February Other Income', February_Other_Income
-]
-####################################################################################
-##Call to specific month and category function##
-def Selection(Month,Category,Monthly_Expense_Categories):
-    while True:
-        if Month == 'January' and Category == 'Expenses' and Monthly_Expense_Categories == 'All':
-            print(January_Expenses)
-        elif Month == 'January' and Category =='Expenses' and Monthly_Expense_Categories == 'Automotive Expenses':
-            print('January Automotive Expenses - $',January_Automotive_Expenses)
-        elif Month == 'January' and Category == 'Expenses' and Monthly_Expense_Categories == 'Miscellaneous Expenses':
-            print('January Miscellaneous Expenses - $',January_Miscellaneous_Expenses)
-        elif Month == 'January' and Category == 'Income' and Monthly_Expense_Categories == 'All':
-            print(January_Income)
-        elif Month == 'January' and Category == 'Income' and Monthly_Expense_Categories == 'Primary Income':
-            print('January Primary Income - $',January_Primary_Income)
-        elif Month == 'January' and Category == 'Income' and Monthly_Expense_Categories == 'Primary Income':
-            print('January Primary Income - $',January_Primary_Income)
-        elif Month == 'February' and Category == 'Expenses' and Monthly_Expense_Categories == 'All':
-            print(February_Expenses)
-        elif Month == 'February' and Category == 'Expenses' and Monthly_Expense_Categories == 'Automotive Expenses':
-            print('February Automotive Expenses - $',February_Automotive_Expenses)
-        elif Month == 'February' and Category == 'Expenses' and Monthly_Expense_Categories == 'Miscellaneous Expenses':
-            print('February Miscellaneous Expenses - $',February_Miscellaneous_Expenses)
-        elif Month == 'February' and Category == 'Income' and Monthly_Expense_Categories == 'All':
-            print(February_Income)
-        else:
-            print("NOT CORRECT")
-        break
-
-##Questions for def Selection(Month,Category) Function##
+##Primary Input Questions##
 Month=input("What Month:")
 Category=input("Which Accounting Category:")
-Monthly_Expense_Categories=input("Specify:")
-Selection(Month,Category,Monthly_Expense_Categories)
+
+##Arithmetic Operation using Addition## **ADD OTHER OPERATIONS**
+def total(num1,num2,num3,num4,num5):
+    return (num1 + num2 + num3 + num4 + num5)
+
+##Setup monthly income lists and operations##
+January_Income_List = [
+        'January - Paycheck/Salary',
+        'January - Other Income',
+        'January - ATM Deposits',
+        'January - Transfers',
+        'January - Reimbursements']
+
+##Setup monthly expense lists and operations##    
+January_Expense_List = [
+    'January_Automotive_Expenses',
+    'January Miscellaneous Expenses',
+    'January Food Expenses',
+    'January Medical Expenses',
+    'January Clothing Expenses'
+    ]
+
+##Setup monthly income lists and operations##
+if Month == 'January' and Category == 'Income':
+
+    ##Input configuration for Monthly Income##
+    January_Primary_Income = float(input("January Primary Income:"))
+    January_Other_Income = float(input("January Other Income:"))
+    January_ATM_Deposits = float(input("January ATM Deposits:"))
+    January_Transfers = float(input("January Transfers:"))
+    January_Reimbursements = float(input("January Reimbursements:"))
+
+    ##Arithmetic Operations##
+    print("Select operation.")
+    print("1.Add")
+    print("2.Subtract")
+    print("3.Multiply")
+    print("4.Divide")
+    operation = input("Enter operation(1/2/3/4): ")
+
+##What to do if "January Expense"##
+if Month == 'January' and Category == 'Expenses':
+    
+    ##Input Configuration for Monthly Expenses##
+    January_Automotive_Expenses = float(input("January Automotive Expenses:"))
+    January_Miscellaneous_Expenses = float(input("January Miscellaneous Expenses:"))
+    January_Food_Expenses = float(input("January Food Expenses:"))
+    January_Medical_Expenses = float(input("January Medical Expenses:"))
+    January_Clothing_Expenses = float(input("January Clothing Expenses:"))
+
+    ##Arithmetic Operations##
+    print("Select operation.")
+    print("1.Add")
+    print("2.Subtract")
+    print("3.Multiply")
+    print("4.Divide")
+    operation = input("Enter operation(1/2/3/4): ")
+    
+###Calculation setup using Month/Category/Operation##
+while True:
+    if Month == 'January' and Category == 'Income' and operation in ('1', '2', '3', '4'):
+        num1 = January_Primary_Income
+        num2 = January_Other_Income
+        num3 = January_ATM_Deposits
+        num4 = January_Transfers
+        num5 = January_Reimbursements
+    elif Month == 'January' and Category == 'Expenses' and operation in ('1', '2', '3', '4'):
+        num1 = January_Automotive_Expenses
+        num2 = January_Miscellaneous_Expenses   
+        num3 = January_Food_Expenses
+        num4 = January_Medical_Expenses
+        num5 = January_Clothing_Expenses
+    if operation == '1':
+        print(num1, "+", num2, "+", num3, "+", num4, "+", num5, "=", total(num1, num2, num3, num4, num5))
+    break
+else:
+    print("Invalid Input")
+
+
+
+
+
+    
+
+
+
 
 
